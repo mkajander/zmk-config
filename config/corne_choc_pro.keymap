@@ -70,6 +70,19 @@
             #binding-cells = <0>;
             bindings = <&kp FI_MAC_EXCL &kp FI_MAC_EQUAL>;
         };
+
+        // Layer indicator macros - output text to show which base layer is active
+        layer_indicator_win: layer_indicator_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to BASE &kp FI_W &kp FI_I &kp FI_N &kp FI_MINUS &kp FI_M &kp FI_O &kp FI_D &kp FI_E &kp FI_SPACE>;
+        };
+        
+        layer_indicator_mac: layer_indicator_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to BASE_MAC &kp FI_MAC_M &kp FI_MAC_A &kp FI_MAC_C &kp FI_MAC_MINUS &kp FI_MAC_M &kp FI_MAC_O &kp FI_MAC_D &kp FI_MAC_E &kp FI_MAC_SPACE>;
+        };
     };
     
     // Combos for keyboard layer access (safety: requires 3-key combination)
@@ -228,12 +241,14 @@
 // -----------------------------------------------------------------------------------------
 // System management - Bluetooth, RGB, reset functions - 3-key combo access
 // |TRANS | BT1 | BT2 | BT3 | BT4 | BT5 |TRANS|TRANS|WIN/L|     |     |     | MAC |TRANS |
-// |TRANS |BTCLR|RGBTG| RST |BOOT |UNLCK|TRANS|TRANS| ←   | ↓   | ↑   | →   |     |TRANS |
+// |TRANS |BTCLR|RGBTG| RST |BOOT |UNLCK|TRANS|TRANS| ←   | ↓   | ↑   | →   |WTEST|MTEST |
 // |TRANS |     |     |     |     |     |     |     |     |     |     |     |     |TRANS |
 //                   |TRANS|TRANS|TRANS|             |TRANS|TRANS|TRANS|
+// WTEST: Switch to WIN/Linux base layer and type "win-mode "
+// MTEST: Switch to Mac base layer and type "mac-mode "
             bindings = <
    &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans &trans &to BASE     &trans   &trans &trans    &to BASE_MAC &trans
-   &trans &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset &bootloader &studio_unlock &trans &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &trans &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset &bootloader &studio_unlock &trans &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT &layer_indicator_win &layer_indicator_mac
    &trans &trans       &trans          &trans     &trans      &trans                            &trans   &trans   &trans &trans    &trans &trans
                                         &trans     &trans      &trans                           &trans &trans   &trans
             >;
