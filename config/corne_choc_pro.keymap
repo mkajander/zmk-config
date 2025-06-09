@@ -176,14 +176,14 @@
 // -----------------------------------------------------------------------------------------
 // QWERTY layout optimized for Mac Finnish keyboard layout
 // | ESC  |  Q  |  W  |  E  |  R  |  T  |LALT|RALT|  Y  |  U  |   I  |  O  |  P  | BSPC |
-// | TAB  |  A  |  S  |  D  |  F  |  G  |LCMD|RCMD |  H  |  J  |   K  |  L  |  Ö  |  Ä   |
+// | TAB  |  A  |  S  |  D  |  F  |  G  |LCTRL|RCTRL |  H  |  J  |   K  |  L  |  Ö  |  Ä   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |     |     |  N  |  M  |   ,  |  .  |  -  | SHFT |
-//                   | OPT |PROG | SPC |             | ENT |FUNC|NUMBR|
+//                   | GUI |PROG | SPC |             | ENT |FUNC|NUMBR|
             bindings = <
    &kp ESC   &kp FI_MAC_Q &kp FI_MAC_W &kp FI_MAC_E &kp FI_MAC_R &kp FI_MAC_T   &kp LALT   &kp RALT   &kp FI_MAC_Y &kp FI_MAC_U  &kp FI_MAC_I     &kp FI_MAC_O   &kp FI_MAC_P    &kp BSPC
    &kp TAB   &kp FI_MAC_A &kp FI_MAC_S &kp FI_MAC_D &kp FI_MAC_F &kp FI_MAC_G   &kp LCMD   &kp RCMD   &kp FI_MAC_H &kp FI_MAC_J  &kp FI_MAC_K     &kp FI_MAC_L   &kp FI_MAC_O_UMLAUT &kp FI_MAC_A_UMLAUT
    &kp LSHFT &kp FI_MAC_Z &kp FI_MAC_X &kp FI_MAC_C &kp FI_MAC_V &kp FI_MAC_B                         &kp FI_MAC_N &kp FI_MAC_M  &kp FI_MAC_COMMA &kp FI_MAC_DOT &kp FI_MAC_MINUS &kp RSHFT
-                               &kp LALT &mo PROG_MAC &kp FI_MAC_SPACE                           &kp RET &mo FUNCTION_MAC &tog NUMBER_MAC
+                               &kp LGUI &mo PROG_MAC &kp FI_MAC_SPACE                           &kp RET &mo FUNCTION_MAC &tog NUMBER_MAC
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
