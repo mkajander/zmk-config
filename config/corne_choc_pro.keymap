@@ -100,6 +100,23 @@
         };
     };
 
+    // Tap dance behaviors for number layers
+    behaviors {
+        td_num: tap_dance_num {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo NUMBER>, <&tog NUMBER>;
+        };
+        
+        td_num_mac: tap_dance_num_mac {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo NUMBER_MAC>, <&tog NUMBER_MAC>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -115,7 +132,7 @@
    &kp ESC   &kp FI_Q &kp FI_W &kp FI_E &kp FI_R &kp FI_T   &kp LALT   &kp RALT   &kp FI_Y &kp FI_U  &kp FI_I     &kp FI_O   &kp FI_P    &kp BSPC
    &kp TAB   &kp FI_A &kp FI_S &kp FI_D &kp FI_F &kp FI_G   &kp LCTRL  &kp RCTRL  &kp FI_H &kp FI_J  &kp FI_K     &kp FI_L   &kp FI_O_UMLAUT &kp FI_A_UMLAUT
    &kp LSHFT &kp FI_Z &kp FI_X &kp FI_C &kp FI_V &kp FI_B                         &kp FI_N &kp FI_M  &kp FI_COMMA &kp FI_DOT &kp FI_MINUS &kp RSHFT
-                               &kp LGUI &mo PROG &kp FI_SPACE                           &kp RET &mo FUNCTION &tog NUMBER
+                               &kp LGUI &mo PROG &kp FI_SPACE                           &kp RET &mo FUNCTION &td_num
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -176,14 +193,14 @@
 // -----------------------------------------------------------------------------------------
 // QWERTY layout optimized for Mac Finnish keyboard layout
 // | ESC  |  Q  |  W  |  E  |  R  |  T  |LALT|RALT|  Y  |  U  |   I  |  O  |  P  | BSPC |
-// | TAB  |  A  |  S  |  D  |  F  |  G  |LCTRL|RCTRL |  H  |  J  |   K  |  L  |  Ö  |  Ä   |
+// | TAB  |  A  |  S  |  D  |  F  |  G  |LCTRL|RCTRL|  H  |  J  |   K  |  L  |  Ö  |  Ä   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |     |     |  N  |  M  |   ,  |  .  |  -  | SHFT |
 //                   | GUI |PROG | SPC |             | ENT |FUNC|NUMBR|
             bindings = <
    &kp ESC   &kp FI_MAC_Q &kp FI_MAC_W &kp FI_MAC_E &kp FI_MAC_R &kp FI_MAC_T   &kp LALT   &kp RALT   &kp FI_MAC_Y &kp FI_MAC_U  &kp FI_MAC_I     &kp FI_MAC_O   &kp FI_MAC_P    &kp BSPC
-   &kp TAB   &kp FI_MAC_A &kp FI_MAC_S &kp FI_MAC_D &kp FI_MAC_F &kp FI_MAC_G   &kp LCMD   &kp RCMD   &kp FI_MAC_H &kp FI_MAC_J  &kp FI_MAC_K     &kp FI_MAC_L   &kp FI_MAC_O_UMLAUT &kp FI_MAC_A_UMLAUT
+   &kp TAB   &kp FI_MAC_A &kp FI_MAC_S &kp FI_MAC_D &kp FI_MAC_F &kp FI_MAC_G   &kp LCTRL  &kp RCTRL  &kp FI_MAC_H &kp FI_MAC_J  &kp FI_MAC_K     &kp FI_MAC_L   &kp FI_MAC_O_UMLAUT &kp FI_MAC_A_UMLAUT
    &kp LSHFT &kp FI_MAC_Z &kp FI_MAC_X &kp FI_MAC_C &kp FI_MAC_V &kp FI_MAC_B                         &kp FI_MAC_N &kp FI_MAC_M  &kp FI_MAC_COMMA &kp FI_MAC_DOT &kp FI_MAC_MINUS &kp RSHFT
-                               &kp LGUI &mo PROG_MAC &kp FI_MAC_SPACE                           &kp RET &mo FUNCTION_MAC &tog NUMBER_MAC
+                               &kp LGUI &mo PROG_MAC &kp FI_MAC_SPACE                           &kp RET &mo FUNCTION_MAC &td_num_mac
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
