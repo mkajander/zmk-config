@@ -14,89 +14,90 @@
 └─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
                   │     │     │     │     │        │     │     │     │     │
                   └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
-
-          [LEFT ENC]                        [RIGHT ENC]
-          VOL±                              TRACK±
 ```
 
 **Features:**
 - **6×4 key matrix per hand** (58 keys total)
 - **2 rotary encoders** with click functions
 - **4 thumb keys per hand**
-- **10 layers** defined (3 main active layers)
+- **10 layers** defined
 - **Nordic character support** via RALT combos
 
 ## Layer 0: BASE (QWERTY)
 
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐                    ┌─────┬─────┬─────┬─────┬─────┬─────┐
+│ ESC │  1  │  2  │  3  │  4  │  5  │                    │  6  │  7  │  8  │  9  │  0  │  `  │
+├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ ESC │  Q  │  W  │  E  │  R  │  T  │                    │  Y  │  U  │  I  │  O  │  P  │BSPC │
 ├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ TAB │  A  │  S  │  D  │  F  │  G  │                    │  H  │  J  │  K  │  L  │  ;  │  '  │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  Z  │  X  │  C  │  V  │  B  │                    │  N  │  M  │  ,  │  .  │  /  │SHIFT│
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ ESC │  1  │  2  │  3  │  4  │  5  │VOL- │        │VOL+ │  6  │  7  │  8  │  9  │  0  │  `  │
+│LSFT │  Z  │  X  │  C  │  V  │  B  │VOL- │        │VOL+ │  N  │  M  │  ,  │  .  │  /  │RSFT │
 └─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ GUI │ ALT │CTRL │ LT1 │        │ LT2 │CTRL │ ALT │ GUI │
+                  │LGUI │LALT │LCTL │ LT1 │        │ LT2 │RCTL │RALT │RGUI │
                   └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
+                        │ SPC │              │ ENT │
+                        └─────┘              └─────┘
 ```
 
 **Key Features:**
-- Standard QWERTY layout with number row on bottom
-- ESC in top-left for Vim users
+- Standard QWERTY layout with number row on top (like Corne)
+- Duplicate ESC keys on top-left positions for Vim users  
 - TAB for IDE workflow
-- LT1 (Layer 1 when held) on left thumb
-- LT2 (Layer 2 when held) on right thumb
-- Volume controls integrated into encoder positions
-- **Note**: No dedicated Space key (accessed via layer)
+- LT1 (Layer 1 when held) on left thumb cluster
+- LT2 (Layer 2 when held) on right thumb cluster
+- Space key accessible next to left thumb cluster
+- Enter key accessible next to right thumb cluster
+- Volume controls integrated into encoder positions (VOL-/VOL+)
+- Standard modifier key placement matching Corne layout
 
-## Layer 1: NUMBERS & SYMBOLS (LT1 Hold)
+## Layer 1: SYMBOLS & NUMBERS (LT1 Hold)
 
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐                    ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│ --- │ KP1 │ KP2 │ KP3 │ KP4 │ KP5 │                    │ KP6 │ KP7 │ KP8 │ KP9 │ KP0 │ --- │
+│ --- │ --- │ --- │ --- │ --- │ --- │                    │ --- │ --- │ --- │ --- │ --- │ --- │
 ├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  !  │  _  │  @  │  ^  │  $  │                    │  ~  │  "  │  \  │  ]  │  }  │ NO  │
+│ --- │  1  │  2  │  3  │  4  │  5  │                    │  6  │  7  │  8  │  9  │  0  │ --- │
 ├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  +  │  =  │  -  │  |  │  &  │                    │  -  │  /  │  *  │  -  │  %  │  %  │
+│ --- │  !  │  _  │  @  │  ^  │  $  │                    │  ~  │  }  │  \  │  "  │  |  │ --- │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ --- │ --- │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │ --- │ --- │ --- │
+│ --- │  +  │  =  │  –  │  |  │  &  │ ENC │        │ ENC │  -  │  -  │  *  │  /  │  )  │  %  │
 └─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
                   │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │
                   └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
 ```
 
 **Key Features:**
-- Keypad numbers (KP1-KP0) for numpad functionality
-- Programming symbols: `! _ @ ^ $ ~ " \ ] }`
-- Math operators: `+ = - | & / * %`
-- Nordic character access via NO key (RALT combinations)
-- Spaces for additional math/programming symbols
+- Regular numbers (1-9,0) matching Corne layout
+- Programming symbols: `! _ @ ^ $ ~ } \ " |`
+- Math operators: `+ = – | & - * / ) %`
+- Nordic character access via RALT combinations (@ $ – ~ | etc.)
+- Layout optimized for programming and symbol access
 
 ## Layer 2: FUNCTIONS & NAVIGATION (LT2 Hold)
 
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐                    ┌─────┬─────┬─────┬─────┬─────┬─────┐
+│ --- │ --- │ --- │ --- │ --- │ --- │                    │ --- │ --- │ --- │ --- │ --- │ --- │
+├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ --- │ F1  │ F2  │ F3  │ F4  │ F5  │                    │ F6  │ F7  │ F8  │ F9  │ INS │ DEL │
 ├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ --- │  (  │  )  │  [  │  ]  │  /  │                    │  ←  │  ↓  │  ↑  │  →  │PGUP │PGDN │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  {  │  }  │  <  │  >  │  )  │                    │ F10 │ F11 │ F12 │HOME │ END │ --- │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ --- │ --- │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │ --- │ --- │ --- │
+│ --- │  {  │  }  │  <  │  >  │  )  │ ENC │        │ ENC │ F10 │ F11 │ F12 │HOME │ END │ --- │
 └─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
                   │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │
                   └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
 ```
 
 **Key Features:**
-- Function keys F1-F12 distributed for IDE workflow
+- Function keys F1-F12 distributed for IDE workflow (matching Corne layout)
 - All bracket types: `( ) [ ] { } < >`
-- Arrow keys in inverted-T layout (right side)
+- Arrow keys in inverted-T layout (right side, matching Corne)
 - Page navigation: Insert, Delete, Page Up/Down
 - Home/End for line navigation
-- Additional F10-F12 on bottom row
+- Nordic angle brackets (<>) accessible via special keys
 
 ## Layer 9: GAMING (Combo Toggle: ESC+`+1+0)
 
@@ -108,18 +109,18 @@
 ├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ --- │ --- │ --- │ --- │ --- │ --- │                    │ --- │ --- │ --- │ --- │ --- │ --- │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ --- │ --- │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │ --- │ --- │ --- │
+│ --- │ --- │ --- │ --- │ --- │ --- │ ENC │        │ ENC │ --- │ --- │ --- │ --- │ --- │ --- │
 └─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ ALT │ ALT │CTRL │CTRL │        │ --- │ --- │ --- │ --- │
+                  │LALT │LALT │LCTL │LCTL │        │ --- │ --- │ --- │ --- │
                   └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
 ```
 
 **Key Features:**
-- Dedicated ESC and TAB for gaming
-- Duplicate ALT and CTRL on left thumb cluster
-- Space key accessibility for gaming
-- Most keys transparent (inherit from base)
-- **Toggle Access**: ESC + ` + 1 + 0 combo
+- Dedicated ESC and TAB for gaming (matching Corne gaming philosophy)
+- Duplicate ALT and CTRL on left thumb cluster for gaming combinations
+- Space key accessible for gaming
+- Most keys transparent (inherit from base layer)
+- **Toggle Access**: ESC + ` + 1 + 0 combo sequence
 
 ## Encoder Functions
 
@@ -134,50 +135,53 @@
 ## Layer Access Summary
 
 ```
-| GUI | ALT | CTRL | LT1 |        | LT2 | CTRL | ALT | GUI |
+│LGUI │LALT │LCTL │ LT1 │        │ LT2 │RCTL │RALT │RGUI │
 ```
 
 - **BASE**: Default typing layer
-- **LAYER 1**: Hold LT1 for numbers and symbols
+- **LAYER 1**: Hold LT1 for symbols and numbers  
 - **LAYER 2**: Hold LT2 for functions and navigation
 - **GAMING**: Toggle via 4-key combo for gaming optimization
 
 ## Special Features
 
 ### Combo Sequences:
-- **Gaming Layer Toggle**: ESC + ` + 1 + 0 (4-key combo)
+- **Gaming Layer Toggle**: ESC + ` + 1 + 0 (4-key combo sequence)
 
 ### Nordic Character Support:
 - **Nordic characters** accessible via RALT combinations
-- **NO key** on Layer 1 provides RALT functionality
+- **RALT mappings** integrated into symbol layers (@ $ – ~ | etc.)
 - Requires OS set to Nordic keyboard layout
 
 ### Unique Layout Characteristics:
-- **Number row on bottom** instead of traditional top position
-- **No dedicated Space key** on base layer (accessed via layers)
+- **Number row on top** matching Corne layout structure
+- **Dedicated Space and Enter keys** in thumb clusters
 - **Extended thumb cluster** with 4 keys per side
 - **Dual encoder control** for media and volume
+- **Consistent keymapping** with Corne for overlapping keys
 
 ## Layout Philosophy
 
 ### Design Principles:
-1. **Layer-based access** - Multiple functions per key position
-2. **Gaming optimization** - Dedicated layer for gaming workflow
-3. **Media integration** - Encoder controls for multimedia
-4. **Programming focus** - Comprehensive symbol access
-5. **Nordic support** - Built-in Nordic character handling
+1. **Corne compatibility** - Same keys in same positions where applicable
+2. **Layer-based access** - Multiple functions per key position
+3. **Gaming optimization** - Dedicated layer for gaming workflow
+4. **Media integration** - Encoder controls for multimedia
+5. **Programming focus** - Comprehensive symbol access
+6. **Nordic support** - Built-in Nordic character handling
 
 ### Ergonomic Considerations:
 - **Thumb cluster heavy usage** for layer switching
 - **Logical symbol grouping** by function type
-- **Arrow keys in standard position** for familiar navigation
+- **Arrow keys in standard position** for familiar navigation (matching Corne)
 - **Function keys distributed** across accessible positions
 
-### Comparison to Standard Layouts:
-- **More keys available** than compact layouts (58 vs 42 on Corne)
+### Comparison to Corne Layout:
+- **Additional keys available** compared to Corne (58 vs 42 keys)
+- **Same core layout** for overlapping key positions
 - **Additional thumb positions** for complex layer access
 - **Dual encoder functionality** for media control
 - **Gaming layer optimization** for FPS/competitive gaming
-- **Flexible number placement** (bottom row vs top row)
+- **Number row placement** matches Corne structure (top row)
 
-This layout maximizes the Sofle's additional keys and encoders while maintaining programming efficiency and gaming optimization. 
+This layout maximizes the Sofle's additional keys and encoders while maintaining compatibility with the Corne layout for shared key positions, ensuring a consistent typing experience across both keyboards.
