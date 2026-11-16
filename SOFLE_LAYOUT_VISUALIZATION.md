@@ -1,183 +1,97 @@
 # Sofle Keyboard - Layout Visualization
 
-## Physical Layout Overview
+This document shows the Sofle layout that is in [`current-sofle.vil`](current-sofle.vil).
+The Sofle uses Vial firmware. To put the layout on the keyboard, load the file in Vial with **File > Load saved layout**.
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐                    ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │     │     │     │     │                    │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │                    │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │                    │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │ ENC │        │ ENC │     │     │     │     │     │     │
-└─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
-                  │     │     │     │     │        │     │     │     │     │
-                  └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
+The images show the characters that the Finnish OS keyboard layout makes.
+On a different OS layout, the symbol keys make different characters.
 
-          [LEFT ENC]                        [RIGHT ENC]
-          VOL±                              TRACK±
-```
+## How to read the images
 
-**Features:**
-- **6×4 key matrix per hand** (58 keys total)
-- **2 rotary encoders** with click functions
-- **4 thumb keys per hand**
-- **10 layers** defined (3 main active layers)
-- **Nordic character support** via RALT combos
+- A white key sends the character or the function on its legend.
+- A light gray key is a modifier or an editing key.
+- A light blue key changes the layer. The dark blue key is the key that you hold for the layer in the image.
+- A gray key with a dashed outline has no assignment on that layer. It does the same as on the base layer.
+- A round key is an encoder push switch. The text above it shows what the encoder sends when you turn it.
 
-## Layer 0: BASE (QWERTY)
+## Layers
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐                    ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│ ESC │  Q  │  W  │  E  │  R  │  T  │                    │  Y  │  U  │  I  │  O  │  P  │BSPC │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │  A  │  S  │  D  │  F  │  G  │                    │  H  │  J  │  K  │  L  │  ;  │  '  │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  Z  │  X  │  C  │  V  │  B  │                    │  N  │  M  │  ,  │  .  │  /  │SHIFT│
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ ESC │  1  │  2  │  3  │  4  │  5  │VOL- │        │VOL+ │  6  │  7  │  8  │  9  │  0  │  `  │
-└─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ GUI │ ALT │CTRL │ LT1 │        │ LT2 │CTRL │ ALT │ GUI │
-                  └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
-```
+| Layer | Name | How to get to it |
+|-------|------|------------------|
+| 0 | Base | Default layer |
+| 1 | Symbols | Hold `L1` on the left thumb |
+| 2 | Function and navigation | Hold `L2` on the right thumb |
+| 3 | Numbers and math | Hold `L3` on the right thumb |
+| 9 | Game | Press Esc + § + 1 + 0 at the same time. Do it again to go back. |
 
-**Key Features:**
-- Standard QWERTY layout with number row on bottom
-- ESC in top-left for Vim users
-- TAB for IDE workflow
-- LT1 (Layer 1 when held) on left thumb
-- LT2 (Layer 2 when held) on right thumb
-- Volume controls integrated into encoder positions
-- **Note**: No dedicated Space key (accessed via layer)
+Layers 4 to 8 are empty.
 
-## Layer 1: NUMBERS & SYMBOLS (LT1 Hold)
+### Layer 0: Base
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐                    ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│ --- │ KP1 │ KP2 │ KP3 │ KP4 │ KP5 │                    │ KP6 │ KP7 │ KP8 │ KP9 │ KP0 │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  !  │  _  │  @  │  ^  │  $  │                    │  ~  │  "  │  \  │  ]  │  }  │ NO  │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  +  │  =  │  -  │  |  │  &  │                    │  -  │  /  │  *  │  -  │  %  │  %  │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ --- │ --- │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │ --- │ --- │ --- │
-└─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │
-                  └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
-```
+![Layer 0: Base](images/sofle/layer-0.svg)
 
-**Key Features:**
-- Keypad numbers (KP1-KP0) for numpad functionality
-- Programming symbols: `! _ @ ^ $ ~ " \ ] }`
-- Math operators: `+ = - | & / * %`
-- Nordic character access via NO key (RALT combinations)
-- Spaces for additional math/programming symbols
+- QWERTY with a number row.
+- `Esc` is on the two top keys of the left outer column.
+- `L1`, `L2`, and `L3` change the layer only while you hold them. They send nothing when you tap them.
+- The base layer has no `å` key.
 
-## Layer 2: FUNCTIONS & NAVIGATION (LT2 Hold)
+### Layer 1: Symbols
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐                    ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│ --- │ F1  │ F2  │ F3  │ F4  │ F5  │                    │ F6  │ F7  │ F8  │ F9  │ INS │ DEL │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  (  │  )  │  [  │  ]  │  /  │                    │  ←  │  ↓  │  ↑  │  →  │PGUP │PGDN │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  {  │  }  │  <  │  >  │  )  │                    │ F10 │ F11 │ F12 │HOME │ END │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ --- │ --- │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │ --- │ --- │ --- │
-└─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │
-                  └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
-```
+![Layer 1: Symbols](images/sofle/layer-1.svg)
 
-**Key Features:**
-- Function keys F1-F12 distributed for IDE workflow
-- All bracket types: `( ) [ ] { } < >`
-- Arrow keys in inverted-T layout (right side)
-- Page navigation: Insert, Delete, Page Up/Down
-- Home/End for line navigation
-- Additional F10-F12 on bottom row
+- The left hand has the brackets in pairs: `{ }`, `[ ]`, `( )`, and `< >`.
+- The right hand has punctuation on the home row and operators on the bottom row.
+- `^`, `~`, and `` ` `` are dead keys in the Finnish OS layout. Press `Space` after them to get the character alone.
 
-## Layer 9: GAMING (Combo Toggle: ESC+`+1+0)
+### Layer 2: Function and navigation
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐                    ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│ ESC │ --- │ --- │ --- │ --- │ --- │                    │ --- │ --- │ --- │ --- │ --- │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │ --- │ --- │ --- │ --- │ --- │                    │ --- │ --- │ --- │ --- │ --- │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┤                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ --- │ --- │ --- │ --- │ --- │                    │ --- │ --- │ --- │ --- │ --- │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┐        ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ --- │ --- │ --- │ --- │ --- │ --- │        │ --- │ --- │ --- │ --- │ --- │ --- │ --- │
-└─────┴─────┴─────┼─────┼─────┼─────┼─────┤        ├─────┼─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ ALT │ ALT │CTRL │CTRL │        │ --- │ --- │ --- │ --- │
-                  └─────┴─────┴─────┴─────┘        └─────┴─────┴─────┴─────┘
-```
+![Layer 2: Function and navigation](images/sofle/layer-2.svg)
 
-**Key Features:**
-- Dedicated ESC and TAB for gaming
-- Duplicate ALT and CTRL on left thumb cluster
-- Space key accessibility for gaming
-- Most keys transparent (inherit from base)
-- **Toggle Access**: ESC + ` + 1 + 0 combo
+- `F1` to `F10` are on the top letter row. `F11` and `F12` are on the left home row.
+- The arrow keys are on the right home row in the order left, down, up, right.
+- `Home`, `End`, `Undo`, `Again`, and Shift+Tab are below the arrow keys.
+- `PgUp`, `PgDn`, and `Del` are in the two right outer columns.
+- The left hand has `? : ;`, the quote characters, and `< >`.
 
-## Encoder Functions
+### Layer 3: Numbers and math
 
-### All Layers:
-- **Left Encoder**: Volume Down/Up
-- **Right Encoder**: Previous Track/Next Track
+![Layer 3: Numbers and math](images/sofle/layer-3.svg)
 
-### Encoder Click Functions:
-- **Left Click**: Mute/Unmute
-- **Right Click**: Play/Pause
+- The numbers are on the top letter row, one row below the number row.
+- The left home row has the numeric keypad operators.
+- The right home row has `% ^ & | ( )`.
 
-## Layer Access Summary
+### Layer 9: Game
 
-```
-| GUI | ALT | CTRL | LT1 |        | LT2 | CTRL | ALT | GUI |
-```
+![Layer 9: Game](images/sofle/layer-9.svg)
 
-- **BASE**: Default typing layer
-- **LAYER 1**: Hold LT1 for numbers and symbols
-- **LAYER 2**: Hold LT2 for functions and navigation
-- **GAMING**: Toggle via 4-key combo for gaming optimization
+- The left thumb keys are `Alt`, `Alt`, `Ctrl`, `Ctrl`, and `Space`. This layer has no `L1` key and no left `GUI` key.
+- `Tab` replaces the second `Esc` in the left outer column.
+- `L2` and `L3` on the right thumb continue to work.
 
-## Special Features
+## Encoders
 
-### Combo Sequences:
-- **Gaming Layer Toggle**: ESC + ` + 1 + 0 (4-key combo)
+| Encoder | Turn left | Turn right | Push |
+|---------|-----------|------------|------|
+| Left | Volume down | Volume up | Volume down |
+| Right | Previous track | Next track | Volume up |
 
-### Nordic Character Support:
-- **Nordic characters** accessible via RALT combinations
-- **NO key** on Layer 1 provides RALT functionality
-- Requires OS set to Nordic keyboard layout
+The encoders do the same on all layers.
 
-### Unique Layout Characteristics:
-- **Number row on bottom** instead of traditional top position
-- **No dedicated Space key** on base layer (accessed via layers)
-- **Extended thumb cluster** with 4 keys per side
-- **Dual encoder control** for media and volume
+## Combos and tap dances
 
-## Layout Philosophy
+- **Combo 0:** Esc + § + 1 + 0 toggles layer 9. These are the four corner keys of the number row.
+- **Tap dance 3:** hold for layer 3, double tap to toggle layer 3. The file defines this tap dance, but no key uses it.
 
-### Design Principles:
-1. **Layer-based access** - Multiple functions per key position
-2. **Gaming optimization** - Dedicated layer for gaming workflow
-3. **Media integration** - Encoder controls for multimedia
-4. **Programming focus** - Comprehensive symbol access
-5. **Nordic support** - Built-in Nordic character handling
+## Update the images
 
-### Ergonomic Considerations:
-- **Thumb cluster heavy usage** for layer switching
-- **Logical symbol grouping** by function type
-- **Arrow keys in standard position** for familiar navigation
-- **Function keys distributed** across accessible positions
+The script [`scripts/render_sofle_layout.py`](scripts/render_sofle_layout.py) makes the images from `current-sofle.vil`.
+It needs Python 3 and no other packages.
 
-### Comparison to Standard Layouts:
-- **More keys available** than compact layouts (58 vs 42 on Corne)
-- **Additional thumb positions** for complex layer access
-- **Dual encoder functionality** for media control
-- **Gaming layer optimization** for FPS/competitive gaming
-- **Flexible number placement** (bottom row vs top row)
+1. Save the layout in Vial to `current-sofle.vil`.
+2. Run `python scripts/render_sofle_layout.py`.
+3. If the layers changed, update the layer names in `LAYERS` at the top of the script and the notes in this document.
+4. Commit the `.vil` file and the files in `images/sofle/`.
 
-This layout maximizes the Sofle's additional keys and encoders while maintaining programming efficiency and gaming optimization. 
+The script stops with an error if the layout has a keycode that the script cannot name.
+Add the keycode to the tables at the top of the script.
