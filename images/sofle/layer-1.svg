@@ -109,7 +109,7 @@
 <rect x="733.8" y="247.0" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
 <text x="761.8" y="282.9" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">+</text>
 <rect x="671.8" y="254.4" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
-<text x="699.8" y="290.4" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">/</text>
+<text x="699.8" y="290.4" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">_</text>
 <rect x="609.8" y="262.5" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
 <text x="637.8" y="298.4" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">|</text>
 <rect x="826.8" y="333.8" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -118,7 +118,7 @@
 <text x="792.8" y="366.1" font-size="12" font-weight="400" fill="#8c959f" text-anchor="middle">AltGr</text>
 <rect x="702.8" y="333.8" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="730.8" y="360.8" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">L3</text>
-<text x="730.8" y="381.8" font-size="9.5" fill="#8c959f" opacity="0.75" text-anchor="middle">hold</text>
+<text x="730.8" y="381.8" font-size="9.5" fill="#8c959f" opacity="0.75" text-anchor="middle">hold / 2×</text>
 <rect x="640.8" y="333.8" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="668.8" y="360.8" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">L2</text>
 <text x="668.8" y="381.8" font-size="9.5" fill="#8c959f" opacity="0.75" text-anchor="middle">hold</text>

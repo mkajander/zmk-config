@@ -38,7 +38,7 @@ The images show the characters that the keys make when the OS keyboard layout is
 
 - The numbers are on the top row.
 - The left home row has the math operators. The right home row has `% ^ & | ( )`.
-- `<=`, `>=`, and `!=` are macros. Each macro sends two characters.
+- `=>` is a macro. It sends the two characters `=` and `>`.
 - When the layer is locked, press `Num` to go back to the base layer.
 
 ### Layer 2: Function

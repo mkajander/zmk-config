@@ -18,7 +18,7 @@ The two keyboards use the same layer design, so most symbols are in the same pla
 | Layer | Contents | How to get to it |
 |-------|----------|------------------|
 | Base | QWERTY with `ö` and `ä` | Default layer |
-| Number | Numbers, math operators, `<=` `>=` `!=`, `€ $ §` | Hold `Num`. Double tap `Num` to lock the layer. |
+| Number | Numbers, math operators, `=>`, `€ $ §` | Hold `Num`. Double tap `Num` to lock the layer. |
 | Function | `F1` to `F12`, arrows, page navigation, undo and redo | Hold `Func` |
 | Programming | `{ } [ ] ( ) < >` and the other programming symbols | Hold `Prog` |
 | Keyboard | Bluetooth, RGB, reset, bootloader, OS mode | Press all three thumb keys of one hand |

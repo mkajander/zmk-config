@@ -63,9 +63,7 @@ Three keys are necessary so that you do not open the keyboard layer by accident.
 
 | Macro | Sends |
 |-------|-------|
-| `less_equal`, `mac_less_equal` | `<=` |
-| `greater_equal`, `mac_greater_equal` | `>=` |
-| `not_equal`, `mac_not_equal` | `!=` |
+| `arrow`, `mac_arrow` | `=>` |
 | `layer_indicator_win` | Goes to `BASE`, then types `win-mode ` |
 | `layer_indicator_mac` | Goes to `BASE_MAC`, then types `mac-mode ` |
 

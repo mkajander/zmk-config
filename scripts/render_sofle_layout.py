@@ -20,7 +20,7 @@ LAYERS = {
     0: ("Base", "default layer"),
     1: ("Symbols", "hold L1 (left thumb)"),
     2: ("Function and navigation", "hold L2 (right thumb)"),
-    3: ("Numbers and math", "hold L3 (right thumb)"),
+    3: ("Numbers and math", "hold L3, or double tap L3 to lock"),
     9: ("Game", "toggle with the combo Esc + § + 1 + 0"),
 }
 
@@ -57,8 +57,26 @@ MODS = {"Esc", "Tab", "Space", "Enter", "Bksp", "Del", "Ins", "Shift", "Ctrl",
         "Alt", "AltGr", "GUI"}
 
 
-def legend(code):
+def tap_dance_layer(vil, code):
+    """Return the layer of a "hold for layer, double tap to lock" tap dance key.
+
+    Return None if the keycode is not a tap dance key.
+    """
+    m = re.fullmatch(r"TD\((\d+)\)", code)
+    if not m:
+        return None
+    entry = vil["tap_dance"][int(m.group(1))]
+    tap, hold, double, tap_hold = entry[:4]
+    layer = re.fullmatch(r"MO\((\d+)\)", hold)
+    if not layer or double != f"TG({layer.group(1)})" or (tap, tap_hold) != ("KC_NO", "KC_NO"):
+        raise SystemExit(f"error: no legend for tap dance {code}: {entry}")
+    return int(layer.group(1))
+
+
+def legend(code, vil=None):
     """Return (label, sublabel, kind) for a Vial keycode."""
+    if vil is not None and code.startswith("TD("):
+        return (f"L{tap_dance_layer(vil, code)}", "hold / 2×", "layer")
     if code == "KC_TRNS":
         return ("", "", "trans")
     if code == "KC_NO":
@@ -124,11 +142,12 @@ def render(vil, layer):
         for col in range(6):
             code = keys[row][col]
             x, y = position(row, col)
-            label, sub, kind = legend(code)
+            label, sub, kind = legend(code, vil)
             if layer != 0 and kind == "trans":
                 # Show the base key in gray: this position falls through.
-                label, sub, base_kind = legend(base[row][col])
-                if base[row][col] == f"LT{layer}(KC_NO)":
+                base_code = base[row][col]
+                label, sub, base_kind = legend(base_code, vil)
+                if base_code == f"LT{layer}(KC_NO)" or tap_dance_layer(vil, base_code) == layer:
                     kind = "held"
                 elif base_kind in ("trans", "none"):
                     label = sub = ""
