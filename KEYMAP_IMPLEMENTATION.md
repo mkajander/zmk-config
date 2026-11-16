@@ -95,7 +95,9 @@ For example, `FI_AT` is AltGr+2 and `FI_DLLR` is AltGr+4.
 | File | Use |
 |------|-----|
 | `config/corne_choc_pro.keymap` | The keymap that the build uses |
+| `config/corne_choc_pro.conf` | Keyboard name, idle and sleep times, and underglow defaults |
 | `config/corne_choc_pro.json` | Key positions for layout tools and for the image script |
+| `boards/shields/sharp_mip/` | Display shield from Keebart |
 | `boards/arm/corne_choc_pro/` | Board definition. Its `.keymap` file is the board default. The file in `config/` replaces it. |
 | `build.yaml` | The list of firmware files to build |
 | `config/west.yml` | ZMK version and modules |
@@ -104,7 +106,7 @@ For example, `FI_AT` is AltGr+2 and `FI_DLLR` is AltGr+4.
 
 `build.yaml` builds four firmware files:
 
-- `corne_choc_pro_left` and `corne_choc_pro_right` with the `nice_view` shield
+- `corne_choc_pro_left` and `corne_choc_pro_right` with the `sharp_mip` shield. This shield is the Keebart status screen for the nice!view display.
 - `corne_choc_pro_left` and `corne_choc_pro_right` with the `settings_reset` shield
 
 All four use the `studio-rpc-usb-uart` snippet. The left half has `CONFIG_ZMK_STUDIO=y`.
