@@ -9,7 +9,9 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # The board definition in boards/ does not load on ZMK main (Zephyr 4.1).
+      # Keep this release until the board definition is updated.
+      revision: v0.3
       import: app/west.yml
 
     - name: zmk-locales

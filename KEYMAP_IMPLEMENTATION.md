@@ -109,4 +109,7 @@ For example, `FI_AT` is AltGr+2 and `FI_DLLR` is AltGr+4.
 
 All four use the `studio-rpc-usb-uart` snippet. The left half has `CONFIG_ZMK_STUDIO=y`.
 
+The build uses ZMK release v0.3. `config/west.yml` and `.github/workflows/build.yml` set this version.
+The board definition in `boards/arm/corne_choc_pro/` does not load on the latest ZMK, which uses Zephyr 4.1. Update the board definition before you change the ZMK version.
+
 If you change keys in ZMK Studio, the keyboard uses those changes and not the keymap file. Then the images in this repository can be different from the keyboard.
