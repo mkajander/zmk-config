@@ -117,7 +117,7 @@
 <text x="792.8" y="366.1" font-size="12" font-weight="400" fill="#8c959f" text-anchor="middle">AltGr</text>
 <rect x="702.8" y="333.8" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="730.8" y="360.8" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">L3</text>
-<text x="730.8" y="381.8" font-size="9.5" fill="#8c959f" opacity="0.75" text-anchor="middle">hold</text>
+<text x="730.8" y="381.8" font-size="9.5" fill="#8c959f" opacity="0.75" text-anchor="middle">hold / 2×</text>
 <rect x="640.8" y="333.8" width="56" height="56.0" rx="8" fill="#0969da" stroke="#0969da" stroke-width="1.5"/>
 <text x="668.8" y="362.6" font-size="19" font-weight="600" fill="#ffffff" text-anchor="middle">L2</text>
 <text x="668.8" y="381.8" font-size="9.5" fill="#ffffff" opacity="0.75" text-anchor="middle">hold</text>

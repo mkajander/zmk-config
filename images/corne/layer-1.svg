@@ -65,14 +65,12 @@
 <rect x="151.0" y="192.4" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
 <text x="179.0" y="228.4" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">&gt;</text>
 <rect x="213.0" y="185.0" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
-<text x="241.0" y="213.8" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle">&lt;=</text>
+<text x="241.0" y="213.8" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle">=&gt;</text>
 <text x="241.0" y="233.0" font-size="9.5" fill="#1f2328" opacity="0.75" text-anchor="middle">macro</text>
-<rect x="275.0" y="192.4" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
-<text x="303.0" y="221.3" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle">&gt;=</text>
-<text x="303.0" y="240.4" font-size="9.5" fill="#1f2328" opacity="0.75" text-anchor="middle">macro</text>
-<rect x="337.0" y="199.9" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
-<text x="365.0" y="228.7" font-size="19" font-weight="600" fill="#1f2328" text-anchor="middle">!=</text>
-<text x="365.0" y="247.9" font-size="9.5" fill="#1f2328" opacity="0.75" text-anchor="middle">macro</text>
+<rect x="275.0" y="192.4" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="303.0" y="225.5" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">V</text>
+<rect x="337.0" y="199.9" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="365.0" y="232.9" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">B</text>
 <rect x="585.0" y="199.9" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
 <text x="613.0" y="235.8" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">€</text>
 <rect x="647.0" y="192.4" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1003 442" width="1003" height="442" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
 <rect x="0.5" y="0.5" width="1002" height="441" rx="14" fill="#f6f8fa" stroke="#d0d7de"/>
 <text x="28" y="38" font-size="20" font-weight="600" fill="#1f2328">Layer 3 · Numbers and math</text>
-<text x="975" y="38" font-size="14" fill="#57606a" text-anchor="end">hold L3 (right thumb)</text>
+<text x="975" y="38" font-size="14" fill="#57606a" text-anchor="end">hold L3, or double tap L3 to lock</text>
 <rect x="27.0" y="83.9" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="55.0" y="117.0" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">Esc</text>
 <rect x="89.0" y="83.9" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -122,7 +122,7 @@
 <text x="792.8" y="366.1" font-size="12" font-weight="400" fill="#8c959f" text-anchor="middle">AltGr</text>
 <rect x="702.8" y="333.8" width="56" height="56.0" rx="8" fill="#0969da" stroke="#0969da" stroke-width="1.5"/>
 <text x="730.8" y="362.6" font-size="19" font-weight="600" fill="#ffffff" text-anchor="middle">L3</text>
-<text x="730.8" y="381.8" font-size="9.5" fill="#ffffff" opacity="0.75" text-anchor="middle">hold</text>
+<text x="730.8" y="381.8" font-size="9.5" fill="#ffffff" opacity="0.75" text-anchor="middle">hold / 2×</text>
 <rect x="640.8" y="333.8" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="668.8" y="360.8" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">L2</text>
 <text x="668.8" y="381.8" font-size="9.5" fill="#8c959f" opacity="0.75" text-anchor="middle">hold</text>

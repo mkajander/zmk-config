@@ -40,7 +40,7 @@ SYMBOL = {
     "LT": "<", "GT": ">", "EURO": "€", "DLLR": "$", "SECT": "§",
     "QMARK": "?", "COLON": ":", "SEMI": ";", "SQT": "'", "DQT": '"',
     "LBRC": "{", "RBRC": "}", "LBKT": "[", "RBKT": "]", "BSLH": "\\",
-    "GRAVE": "`", "TILDE": "~", "EXCL": "!", "AT": "@", "HASH": "#",
+    "GRAVE": "`", "TILDE": "~", "UNDER": "_", "EXCL": "!", "AT": "@", "HASH": "#",
 }
 PLAIN = {
     "ESC": "Esc", "TAB": "Tab", "BSPC": "Bksp", "RET": "Enter", "DEL": "Del",
@@ -58,9 +58,7 @@ MODS = {"Esc", "Tab", "Bksp", "Enter", "Del", "Space", "Shift", "Ctrl", "Alt",
         "AltGr", "GUI"}
 OTHER = {
     "trans": ("", "", "trans"),
-    "less_equal": ("<=", "macro", "key"),
-    "greater_equal": (">=", "macro", "key"),
-    "not_equal": ("!=", "macro", "key"),
+    "arrow": ("=>", "macro", "key"),
     "td_num": ("Num", "hold / 2×", "layer"),
     "bt BT_CLR": ("BT clr", "", "sys"),
     "rgb_ug RGB_TOG": ("RGB", "on/off", "sys"),
@@ -76,7 +74,7 @@ def legend(binding):
     """Return (label, sublabel, kind) for one ZMK binding, without the '&'."""
     # The Mac names make the same characters, so drop the Mac marker.
     text = re.sub(r"\bFI_MAC_", "FI_", binding)
-    text = re.sub(r"\b(mac_)(less_equal|greater_equal|not_equal)\b", r"\2", text)
+    text = re.sub(r"\bmac_arrow\b", "arrow", text)
     text = text.replace("td_num_mac", "td_num").replace("_MAC", "")
     if text in OTHER:
         return OTHER[text]

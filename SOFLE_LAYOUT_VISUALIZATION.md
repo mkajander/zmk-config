@@ -20,7 +20,7 @@ On a different OS layout, the symbol keys make different characters.
 | 0 | Base | Default layer |
 | 1 | Symbols | Hold `L1` on the left thumb |
 | 2 | Function and navigation | Hold `L2` on the right thumb |
-| 3 | Numbers and math | Hold `L3` on the right thumb |
+| 3 | Numbers and math | Hold `L3` on the right thumb. Double tap `L3` to lock the layer. |
 | 9 | Game | Press Esc + § + 1 + 0 at the same time. Do it again to go back. |
 
 Layers 4 to 8 are empty.
@@ -32,7 +32,8 @@ Layers 4 to 8 are empty.
 - QWERTY with a number row.
 - `Esc` is on the two top keys of the left outer column.
 - The two inner keys next to the bottom row are `Vol−` and `Vol+`. This keyboard has switches in these positions, not encoders.
-- `L1`, `L2`, and `L3` change the layer only while you hold them. They send nothing when you tap them.
+- `L1` and `L2` change the layer only while you hold them. They send nothing when you tap them.
+- `L3` is a tap dance key. Hold it for layer 3, or double tap it to lock layer 3. Double tap it again to go back.
 - The base layer has no `å` key.
 
 ### Layer 1: Symbols
@@ -72,7 +73,7 @@ Layers 4 to 8 are empty.
 ## Combos and tap dances
 
 - **Combo 0:** Esc + § + 1 + 0 toggles layer 9. These are the four corner keys of the number row.
-- **Tap dance 3:** hold for layer 3, double tap to toggle layer 3. The file defines this tap dance, but no key uses it.
+- **Tap dance 3:** hold for layer 3 (`MO(3)`), double tap to toggle layer 3 (`TG(3)`). The tapping term is 200 ms. The `L3` key on the right thumb uses it.
 
 ## Update the images
 

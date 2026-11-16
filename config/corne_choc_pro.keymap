@@ -32,43 +32,18 @@
         zmk,physical-layout = &default_layout;
     };
     
-    // Macros for comparison operators (not very practical more of a test)
     macros {
-        less_equal: less_equal {
+        // "=>" for C# and TypeScript lambdas
+        arrow: arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp FI_LT &kp FI_EQUAL>;
-        };
-        
-        greater_equal: greater_equal {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp FI_GT &kp FI_EQUAL>;
-        };
-        
-        not_equal: not_equal {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp FI_EXCL &kp FI_EQUAL>;
+            bindings = <&kp FI_EQUAL &kp FI_GT>;
         };
 
-        // Mac-specific comparison operators using Mac keys
-        mac_less_equal: mac_less_equal {
+        mac_arrow: mac_arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp FI_MAC_LT &kp FI_MAC_EQUAL>;
-        };
-        
-        mac_greater_equal: mac_greater_equal {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp FI_MAC_GT &kp FI_MAC_EQUAL>;
-        };
-        
-        mac_not_equal: mac_not_equal {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp FI_MAC_EXCL &kp FI_MAC_EQUAL>;
+            bindings = <&kp FI_MAC_EQUAL &kp FI_MAC_GT>;
         };
 
         // Layer indicator macros - output text to show which base layer is active
@@ -144,12 +119,12 @@
 // Numbers with mathematical operators - toggle layer for calculations
 // |TRANS |  1  |  2  |  3  |  4  |  5  |TRANS|TRANS|  6  |  7  |  8  |  9  |  0  |TRANS |
 // |TRANS |  +  |  -  |  *  |  /  |  =  |TRANS|TRANS|  %  |  ^  |  &  |  |  |  (  |  )   |
-// |TRANS |  <  |  >  | <=  | >=  | !=  |     |     |  €  |  $  |  §  |TRANS|TRANS|TRANS |
+// |TRANS |  <  |  >  | =>  |TRANS|TRANS|     |     |  €  |  $  |  §  |TRANS|TRANS|TRANS |
 //                   |TRANS|TRANS|TRANS |             |TRANS|TRANS|NUMBR|
             bindings = <
    &trans &kp FI_N1   &kp FI_N2    &kp FI_N3        &kp FI_N4         &kp FI_N5         &trans &trans        &kp FI_N6    &kp FI_N7    &kp FI_N8   &kp FI_N9   &kp FI_N0    &trans
    &trans &kp FI_PLUS &kp FI_MINUS &kp FI_ASTRK     &kp FI_FSLH       &kp FI_EQUAL      &trans &trans        &kp FI_PRCNT &kp FI_CARET &kp FI_AMPS &kp FI_PIPE &kp FI_LPAR  &kp FI_RPAR
-   &trans &kp FI_LT   &kp FI_GT    &less_equal      &greater_equal    &not_equal                               &kp FI_EURO  &kp FI_DLLR  &kp FI_SECT &trans      &trans &trans
+   &trans &kp FI_LT   &kp FI_GT    &arrow           &trans            &trans                                   &kp FI_EURO  &kp FI_DLLR  &kp FI_SECT &trans      &trans &trans
                                &trans       &trans         &trans                         &trans  &trans    &tog NUMBER
             >;
         };
@@ -176,12 +151,12 @@
 // All programming symbols - brackets, quotes, operators - hold layer
 // |TRANS|  {  |  }  |  [  |  ]  |  \  |TRANS|TRANS|  `  |  ~  |  !  |  @  |  #  |TRANS |
 // |TRANS|  (  |  )  |  <  |  >  |  /  |TRANS|TRANS|  "  |  '  |  :  |  ;  |  ?  |TRANS |
-// |TRANS|  $  |  %  |  ^  |  &  |  *  |     |     |  |  |  \  |  +  |  -  |  =  |TRANS |
+// |TRANS|  $  |  %  |  ^  |  &  |  *  |     |     |  |  |  _  |  +  |  -  |  =  |TRANS |
 //                   |TRANS|PROG |TRANS|             |TRANS|TRANS|TRANS|
             bindings = <
    &trans &kp FI_LBRC &kp FI_RBRC &kp FI_LBKT &kp FI_RBKT &kp FI_BSLH &trans &trans &kp FI_GRAVE &kp FI_TILDE &kp FI_EXCL  &kp FI_AT      &kp FI_HASH   &trans
    &trans &kp FI_LPAR &kp FI_RPAR &kp FI_LT   &kp FI_GT   &kp FI_FSLH &trans &trans &kp FI_DQT   &kp FI_SQT   &kp FI_COLON &kp FI_SEMI    &kp FI_QMARK  &trans
-   &trans &kp FI_DLLR &kp FI_PRCNT &kp FI_CARET &kp FI_AMPS &kp FI_ASTRK                     &kp FI_PIPE  &kp FI_BSLH  &kp FI_PLUS  &kp FI_MINUS   &kp FI_EQUAL  &trans
+   &trans &kp FI_DLLR &kp FI_PRCNT &kp FI_CARET &kp FI_AMPS &kp FI_ASTRK                     &kp FI_PIPE  &kp FI_UNDER &kp FI_PLUS  &kp FI_MINUS   &kp FI_EQUAL  &trans
                               &trans   &trans   &trans                   &trans  &trans    &trans
             >;
         };
@@ -212,12 +187,12 @@
 // Numbers with mathematical operators optimized for Mac - toggle layer for calculations
 // |TRANS |  1  |  2  |  3  |  4  |  5  |TRANS|TRANS|  6  |  7  |  8  |  9  |  0  |TRANS |
 // |TRANS |  +  |  -  |  *  |  /  |  =  |TRANS|TRANS|  %  |  ^  |  &  |  |  |  (  |  )   |
-// |TRANS |  <  |  >  | <=  | >=  | !=  |     |     |  €  |  $  |  §  |TRANS|TRANS|TRANS |
+// |TRANS |  <  |  >  | =>  |TRANS|TRANS|     |     |  €  |  $  |  §  |TRANS|TRANS|TRANS |
 //                   |TRANS|TRANS|TRANS |             |TRANS|TRANS|NUMBR|
             bindings = <
    &trans &kp FI_MAC_N1   &kp FI_MAC_N2    &kp FI_MAC_N3        &kp FI_MAC_N4         &kp FI_MAC_N5         &trans &trans        &kp FI_MAC_N6    &kp FI_MAC_N7    &kp FI_MAC_N8   &kp FI_MAC_N9   &kp FI_MAC_N0    &trans
    &trans &kp FI_MAC_PLUS &kp FI_MAC_MINUS &kp FI_MAC_ASTRK     &kp FI_MAC_FSLH       &kp FI_MAC_EQUAL      &trans &trans        &kp FI_MAC_PRCNT &kp FI_MAC_CARET &kp FI_MAC_AMPS &kp FI_MAC_PIPE    &kp FI_MAC_LPAR  &kp FI_MAC_RPAR
-   &trans &kp FI_MAC_LT   &kp FI_MAC_GT    &mac_less_equal      &mac_greater_equal    &mac_not_equal                               &kp FI_MAC_EURO  &kp FI_MAC_DLLR  &kp FI_MAC_SECT &trans      &trans &trans
+   &trans &kp FI_MAC_LT   &kp FI_MAC_GT    &mac_arrow           &trans                &trans                                       &kp FI_MAC_EURO  &kp FI_MAC_DLLR  &kp FI_MAC_SECT &trans      &trans &trans
                                &trans       &trans         &trans                         &trans  &trans    &tog NUMBER_MAC
             >;
         };
@@ -244,12 +219,12 @@
 // All programming symbols optimized for Mac Finnish layout - hold layer
 // |TRANS|  {  |  }  |  [  |  ]  |  \  |TRANS|TRANS|  `  |  ~  |  !  |  @  |  #  |TRANS |
 // |TRANS|  (  |  )  |  <  |  >  |  /  |TRANS|TRANS|  "  |  '  |  :  |  ;  |  ?  |TRANS |
-// |TRANS|  $  |  %  |  ^  |  &  |  *  |     |     |  |  |  \  |  +  |  -  |  =  |TRANS |
+// |TRANS|  $  |  %  |  ^  |  &  |  *  |     |     |  |  |  _  |  +  |  -  |  =  |TRANS |
 //                   |TRANS|PROG |TRANS|             |TRANS|TRANS|TRANS|
             bindings = <
    &trans &kp FI_MAC_LBRC    &kp FI_MAC_RBRC    &kp FI_MAC_LBKT    &kp FI_MAC_RBKT    &kp FI_MAC_BSLH    &trans &trans &kp FI_MAC_GRAVE &kp FI_MAC_TILDE   &kp FI_MAC_EXCL  &kp FI_MAC_AT        &kp FI_MAC_HASH     &trans
    &trans &kp FI_MAC_LPAR  &kp FI_MAC_RPAR  &kp FI_MAC_LT    &kp FI_MAC_GT    &kp FI_MAC_FSLH  &trans &trans &kp FI_MAC_DQT   &kp FI_MAC_SQT   &kp FI_MAC_COLON &kp FI_MAC_SEMI    &kp FI_MAC_QMARK  &trans
-   &trans &kp FI_MAC_DLLR  &kp FI_MAC_PRCNT &kp FI_MAC_CARET &kp FI_MAC_AMPS  &kp FI_MAC_ASTRK                     &kp FI_MAC_PIPE    &kp FI_MAC_BSLH    &kp FI_MAC_PLUS  &kp FI_MAC_MINUS   &kp FI_MAC_EQUAL  &trans
+   &trans &kp FI_MAC_DLLR  &kp FI_MAC_PRCNT &kp FI_MAC_CARET &kp FI_MAC_AMPS  &kp FI_MAC_ASTRK                     &kp FI_MAC_PIPE    &kp FI_MAC_UNDER   &kp FI_MAC_PLUS  &kp FI_MAC_MINUS   &kp FI_MAC_EQUAL  &trans
                               &trans   &trans   &trans                   &trans  &trans    &trans
             >;
         };
