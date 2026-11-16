@@ -29,8 +29,8 @@ The keymap has 46 positions.
 
 | Positions | Keys |
 |-----------|------|
-| 0 to 13 | Top row. Positions 6 and 7 are the push switches of encoders left 1 and right 1. |
-| 14 to 27 | Home row. Positions 20 and 21 are the push switches of encoders left 2 and right 2. |
+| 0 to 13 | Top row. Positions 6 and 7 are the inner keys `Alt` and `AltGr`. |
+| 14 to 27 | Home row. Positions 20 and 21 are the two inner `Ctrl` keys. |
 | 28 to 39 | Bottom row |
 | 40 to 42 | Left thumb keys: `GUI`, `Prog`, `Space` |
 | 43 to 45 | Right thumb keys: `Enter`, `Func`, `Num` |
@@ -69,9 +69,10 @@ Three keys are necessary so that you do not open the keyboard layer by accident.
 | `layer_indicator_win` | Goes to `BASE`, then types `win-mode ` |
 | `layer_indicator_mac` | Goes to `BASE_MAC`, then types `mac-mode ` |
 
-## Encoders
+## Sensor bindings
 
-The two base layers have these sensor bindings. The other layers have none, so the encoders do the same on all layers.
+This keyboard has no encoders. The four inner positions have switches.
+The board files define four encoders, and the two base layers keep these sensor bindings for them. The bindings do nothing without encoders.
 
 | Sensor | Binding |
 |--------|---------|

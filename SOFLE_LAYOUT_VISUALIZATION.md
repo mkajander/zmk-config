@@ -12,7 +12,6 @@ On a different OS layout, the symbol keys make different characters.
 - A light gray key is a modifier or an editing key.
 - A light blue key changes the layer. The dark blue key is the key that you hold for the layer in the image.
 - A gray key with a dashed outline has no assignment on that layer. It does the same as on the base layer.
-- A round key is an encoder push switch. The text above it shows what the encoder sends when you turn it.
 
 ## Layers
 
@@ -32,6 +31,7 @@ Layers 4 to 8 are empty.
 
 - QWERTY with a number row.
 - `Esc` is on the two top keys of the left outer column.
+- The two inner keys next to the bottom row are `Vol−` and `Vol+`. This keyboard has switches in these positions, not encoders.
 - `L1`, `L2`, and `L3` change the layer only while you hold them. They send nothing when you tap them.
 - The base layer has no `å` key.
 
@@ -68,15 +68,6 @@ Layers 4 to 8 are empty.
 - The left thumb keys are `Alt`, `Alt`, `Ctrl`, `Ctrl`, and `Space`. This layer has no `L1` key and no left `GUI` key.
 - `Tab` replaces the second `Esc` in the left outer column.
 - `L2` and `L3` on the right thumb continue to work.
-
-## Encoders
-
-| Encoder | Turn left | Turn right | Push |
-|---------|-----------|------------|------|
-| Left | Volume down | Volume up | Volume down |
-| Right | Previous track | Next track | Volume up |
-
-The encoders do the same on all layers.
 
 ## Combos and tap dances
 

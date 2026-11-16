@@ -12,7 +12,6 @@ The images show the characters that the keys make when the OS keyboard layout is
 - A light blue key changes the layer. The dark blue key is the key that you hold for the layer in the image.
 - A yellow key is a keyboard function, for example a Bluetooth profile.
 - A gray key with a dashed outline has no assignment on that layer. It does the same as on the base layer.
-- A round key is an encoder push switch. The text next to it shows what the encoder sends when you turn it.
 
 ## Layers
 
@@ -30,7 +29,7 @@ The images show the characters that the keys make when the OS keyboard layout is
 ![Layer 0: Base](images/corne/layer-0.svg)
 
 - QWERTY with `ö` and `ä` on the right home row.
-- The four encoder push switches are `Alt`, `Ctrl`, `AltGr`, and `Ctrl`.
+- The four keys of the inner column are `Alt`, `Ctrl`, `AltGr`, and `Ctrl`. This keyboard has switches in these positions, not encoders.
 - `Prog` and `Func` change the layer only while you hold them.
 
 ### Layer 1: Number
@@ -77,18 +76,6 @@ Layers 4 to 7 have the same legends as layers 0 to 3. They send the key codes th
 There is one difference in function: `Undo` and `Redo` send Cmd+Z and Cmd+Shift+Z.
 
 The script that makes the images compares the Mac layers with layers 0 to 3. It stops with an error if a legend is different.
-
-## Encoders
-
-| Encoder | Push | Turn left | Turn right |
-|---------|------|-----------|------------|
-| Left 1 | Alt | Volume down | Volume up |
-| Left 2 | Ctrl | Page up | Page down |
-| Right 1 | AltGr | Previous track | Next track |
-| Right 2 | Ctrl | Brightness down | Brightness up |
-
-The encoders do the same on all layers.
-The images put encoder 1 above encoder 2 on each half. The board files do not say which encoder is the top one, so make sure on the keyboard.
 
 ## Update the images
 

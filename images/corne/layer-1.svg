@@ -14,9 +14,9 @@
 <text x="303.0" y="104.4" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">4</text>
 <rect x="337.0" y="75.9" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
 <text x="365.0" y="111.8" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">5</text>
-<circle cx="427.0" cy="134.9" r="28.0" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="399.0" y="106.9" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="427.0" y="139.9" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">Alt</text>
-<circle cx="551.0" cy="134.9" r="28.0" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="523.0" y="106.9" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="551.0" y="139.2" font-size="12" font-weight="400" fill="#8c959f" text-anchor="middle">AltGr</text>
 <rect x="585.0" y="75.9" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
 <text x="613.0" y="111.8" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">6</text>
@@ -42,9 +42,9 @@
 <text x="303.0" y="166.4" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">/</text>
 <rect x="337.0" y="137.9" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
 <text x="365.0" y="173.8" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">=</text>
-<circle cx="427.0" cy="196.9" r="28.0" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="399.0" y="168.9" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="427.0" y="201.9" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">Ctrl</text>
-<circle cx="551.0" cy="196.9" r="28.0" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="523.0" y="168.9" width="56" height="56.0" rx="8" fill="none" stroke="#d0d7de" stroke-width="1.5" stroke-dasharray="4 3"/>
 <text x="551.0" y="201.9" font-size="14" font-weight="400" fill="#8c959f" text-anchor="middle">Ctrl</text>
 <rect x="585.0" y="137.9" width="56" height="56.0" rx="8" fill="#ffffff" stroke="#afb8c1" stroke-width="1.5"/>
 <text x="613.0" y="173.8" font-size="22" font-weight="600" fill="#1f2328" text-anchor="middle">%</text>
@@ -108,9 +108,5 @@
 <rect x="678.0" y="254.4" width="56" height="56.0" rx="8" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.5"/>
 <text x="706.0" y="282.2" font-size="16" font-weight="600" fill="#0550ae" text-anchor="middle">Num</text>
 <text x="706.0" y="302.4" font-size="9.5" fill="#0550ae" opacity="0.75" text-anchor="middle">on/off</text>
-<text x="439.0" y="99.9" font-size="10.5" fill="#8c959f" text-anchor="middle">↺ Vol− · Vol+ ↻</text>
-<text x="439.0" y="236.9" font-size="10.5" fill="#8c959f" text-anchor="middle">↺ PgUp · PgDn ↻</text>
-<text x="539.0" y="99.9" font-size="10.5" fill="#8c959f" text-anchor="middle">↺ Prev · Next ↻</text>
-<text x="539.0" y="236.9" font-size="10.5" fill="#8c959f" text-anchor="middle">↺ Bri− · Bri+ ↻</text>
 <text x="489" y="369" font-size="12" fill="#57606a" text-anchor="middle">Gray keys with a dashed outline fall through to the base layer.</text>
 </svg>

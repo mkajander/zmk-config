@@ -13,7 +13,7 @@ import re
 import sys
 from pathlib import Path
 
-from keyboard_svg import FALL_THROUGH_NOTE, document, draw_key, draw_rotation
+from keyboard_svg import BASE_NOTE, FALL_THROUGH_NOTE, document, draw_key
 
 # Layer names and how to get to each layer. Edit these when the layout changes.
 LAYERS = {
@@ -98,21 +98,21 @@ HEIGHT_U = 5.55
 STAGGER = [0.37, 0.37, 0.12, 0.0, 0.12, 0.25]
 THUMB_X = [1.5, 2.5, 3.5, 4.5, 5.6]
 THUMB_Y = [4.4, 4.4, 4.4, 4.4, 4.55]
-ENC_X, ENC_Y = 6.2, 3.25
+INNER_X, INNER_Y = 6.2, 3.25  # the extra key next to the bottom row
 
 
 def position(row, col):
-    """Return (x, y, is_encoder) in key units for a matrix position."""
+    """Return (x, y) in key units for a matrix position."""
     hand, r = divmod(row, 5)
     if r < 4:
-        x, y, enc = col, r + STAGGER[col], False
+        x, y = col, r + STAGGER[col]
     elif col < 5:
-        x, y, enc = THUMB_X[col], THUMB_Y[col], False
+        x, y = THUMB_X[col], THUMB_Y[col]
     else:
-        x, y, enc = ENC_X, ENC_Y, True
+        x, y = INNER_X, INNER_Y
     if hand == 1:
         x = WIDTH_U - 1 - x
-    return x, y, enc
+    return x, y
 
 
 def render(vil, layer):
@@ -123,7 +123,7 @@ def render(vil, layer):
     for row in range(10):
         for col in range(6):
             code = keys[row][col]
-            x, y, enc = position(row, col)
+            x, y = position(row, col)
             label, sub, kind = legend(code)
             if layer != 0 and kind == "trans":
                 # Show the base key in gray: this position falls through.
@@ -132,18 +132,9 @@ def render(vil, layer):
                     kind = "held"
                 elif base_kind in ("trans", "none"):
                     label = sub = ""
-            draw_key(out, x, y, label, sub, kind, round_key=enc)
+            draw_key(out, x, y, label, sub, kind)
 
-    for index, enc_x in enumerate((ENC_X, WIDTH_U - 1 - ENC_X)):
-        pair = vil["encoder_layout"][layer][index]
-        gray = layer != 0 and pair == ["KC_TRNS", "KC_TRNS"]
-        if gray:
-            pair = vil["encoder_layout"][0][index]
-        ccw, cw = (legend(code)[0] for code in pair)
-        draw_rotation(out, enc_x, ENC_Y, ccw, cw, gray)
-
-    note = (FALL_THROUGH_NOTE if layer != 0 else
-            "Round keys are the encoder push switches. The text above each one shows the rotation.")
+    note = FALL_THROUGH_NOTE if layer != 0 else BASE_NOTE
     return document(f"Layer {layer} · {name}", access, note, WIDTH_U, HEIGHT_U, out)
 
 
