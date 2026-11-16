@@ -18,6 +18,7 @@ STYLE = {
     "none":  ("none", "#d0d7de", "#8c959f", ' stroke-dasharray="4 3"'),
 }
 
+BASE_NOTE = "Light blue keys change the layer. Light gray keys are modifiers and editing keys."
 FALL_THROUGH_NOTE = "Gray keys with a dashed outline fall through to the base layer."
 
 
@@ -25,7 +26,7 @@ def font_size(label):
     return {1: 22, 2: 19, 3: 16, 4: 14}.get(len(label), 12)
 
 
-def draw_key(out, x, y, label, sub, kind, round_key=False, h=1.0, rotate=None):
+def draw_key(out, x, y, label, sub, kind, h=1.0, rotate=None):
     """Draw one key. x, y and h are in key units. rotate is (degrees, cx, cy)."""
     fill, stroke, ink, dash = STYLE[kind]
     gap = (U - KEY) / 2
@@ -35,12 +36,8 @@ def draw_key(out, x, y, label, sub, kind, round_key=False, h=1.0, rotate=None):
     if rotate:
         deg, rx, ry = rotate
         out.append(f'<g transform="rotate({deg} {PAD + rx * U:.1f} {TOP + ry * U:.1f})">')
-    if round_key:
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{KEY / 2:.1f}" '
-                   f'fill="{fill}" stroke="{stroke}" stroke-width="1.5"{dash}/>')
-    else:
-        out.append(f'<rect x="{px:.1f}" y="{py:.1f}" width="{KEY}" height="{height:.1f}" rx="8" '
-                   f'fill="{fill}" stroke="{stroke}" stroke-width="1.5"{dash}/>')
+    out.append(f'<rect x="{px:.1f}" y="{py:.1f}" width="{KEY}" height="{height:.1f}" rx="8" '
+               f'fill="{fill}" stroke="{stroke}" stroke-width="1.5"{dash}/>')
     if label:
         size = font_size(label)
         faint = kind in ("trans", "none")
@@ -55,18 +52,6 @@ def draw_key(out, x, y, label, sub, kind, round_key=False, h=1.0, rotate=None):
                        f'fill="{ink}" opacity="0.75" text-anchor="middle">{escape(sub)}</text>')
     if rotate:
         out.append("</g>")
-
-
-def draw_rotation(out, x, y, ccw, cw, gray=False, below=False, dx=0):
-    """Write what an encoder sends when you turn it, above or below the key at x, y.
-
-    dx moves the text sideways, in pixels.
-    """
-    cx = PAD + x * U + U / 2 + dx
-    cy = TOP + y * U + (U + 9 if below else -4)
-    out.append(f'<text x="{cx:.1f}" y="{cy:.1f}" font-size="10.5" '
-               f'fill="{"#8c959f" if gray else "#424a53"}" text-anchor="middle">'
-               f'↺ {escape(ccw)} · {escape(cw)} ↻</text>')
 
 
 def document(title, access, note, width_u, height_u, body):

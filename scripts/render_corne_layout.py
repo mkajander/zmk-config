@@ -17,7 +17,7 @@ import json
 import re
 from pathlib import Path
 
-from keyboard_svg import FALL_THROUGH_NOTE, document, draw_key, draw_rotation
+from keyboard_svg import BASE_NOTE, FALL_THROUGH_NOTE, document, draw_key
 
 # Layer index: (title, how to get to the layer). Only these layers get an image.
 LAYERS = {
@@ -117,7 +117,7 @@ def parse_keymap(path):
     return layers
 
 
-def render(layers, positions, encoders, index):
+def render(layers, positions, index):
     title, access = LAYERS[index]
     base = layers[0][0]
     keys = layers[index][0]
@@ -130,21 +130,9 @@ def render(layers, positions, encoders, index):
             kind = "held" if base[i] == hold else "trans"
         rotate = (pos["r"], pos["rx"], pos["ry"]) if "r" in pos else None
         draw_key(out, pos["x"], pos["y"], label, sub, kind,
-                 round_key=i in encoders, h=pos.get("h", 1.0), rotate=rotate)
+                 h=pos.get("h", 1.0), rotate=rotate)
 
-    # Encoder rotation. Only the base layers have sensor bindings in the keymap.
-    for i, binding in zip(encoders, layers[0][1]):
-        m = re.fullmatch(r"inc_dec_kp (\S+) (\S+)", binding)
-        if not m:
-            raise SystemExit(f"error: no legend for sensor binding &{binding}")
-        ccw, cw = (legend("kp " + code)[0] for code in m.groups())
-        pos = positions[i]
-        # Keep the text off the keys: the top pair goes above, the bottom pair below.
-        draw_rotation(out, pos["x"], pos["y"], ccw, cw, gray=index != 0,
-                      below=pos["row"] == 1, dx=12 if pos["col"] == 6 else -12)
-
-    note = (FALL_THROUGH_NOTE if index != 0 else
-            "Round keys are the encoder push switches. The text next to each one shows the rotation.")
+    note = FALL_THROUGH_NOTE if index != 0 else BASE_NOTE
     return document(f"Layer {index} · {title}", access, note, 15, 4.6, out)
 
 
@@ -158,11 +146,6 @@ def main():
             raise SystemExit(f"error: layer {index} has {len(keys)} bindings, "
                              f"but the layout has {len(positions)} keys")
 
-    # Encoder push switches, in the order of the sensors in the board files:
-    # left 1, left 2, right 1, right 2.
-    at = {(p["row"], p["col"]): i for i, p in enumerate(positions)}
-    encoders = [at[(0, 6)], at[(1, 6)], at[(0, 7)], at[(1, 7)]]
-
     for mac, win in MAC_TWIN.items():
         for i, (a, b) in enumerate(zip(layers[mac][0], layers[win][0])):
             if legend(a) != legend(b):
@@ -173,7 +156,7 @@ def main():
     target.mkdir(parents=True, exist_ok=True)
     for index in LAYERS:
         path = target / f"layer-{index}.svg"
-        path.write_text(render(layers, positions, encoders, index), encoding="utf-8", newline="\n")
+        path.write_text(render(layers, positions, index), encoding="utf-8", newline="\n")
         print(f"wrote {path}")
 
 
