@@ -11,8 +11,9 @@ The script stops with an error if it finds a keycode that it cannot name.
 import json
 import re
 import sys
-from html import escape
 from pathlib import Path
+
+from keyboard_svg import FALL_THROUGH_NOTE, document, draw_key, draw_rotation
 
 # Layer names and how to get to each layer. Edit these when the layout changes.
 LAYERS = {
@@ -92,11 +93,8 @@ def legend(code):
 
 
 # Geometry, in key units. Column 0 is the outer column of each hand.
-U = 62
-KEY = 56
-PAD = 24
-TOP = 58
 WIDTH_U = 15.4
+HEIGHT_U = 5.55
 STAGGER = [0.37, 0.37, 0.12, 0.0, 0.12, 0.25]
 THUMB_X = [1.5, 2.5, 3.5, 4.5, 5.6]
 THUMB_Y = [4.4, 4.4, 4.4, 4.4, 4.55]
@@ -117,62 +115,11 @@ def position(row, col):
     return x, y, enc
 
 
-STYLE = {
-    "key":   ("#ffffff", "#afb8c1", "#1f2328", ""),
-    "mod":   ("#eaeef2", "#afb8c1", "#424a53", ""),
-    "layer": ("#ddf4ff", "#54aeff", "#0550ae", ""),
-    "held":  ("#0969da", "#0969da", "#ffffff", ""),
-    "trans": ("none", "#d0d7de", "#8c959f", ' stroke-dasharray="4 3"'),
-    "none":  ("none", "#d0d7de", "#8c959f", ' stroke-dasharray="4 3"'),
-}
-
-
-def font_size(label):
-    return {1: 22, 2: 19, 3: 16, 4: 14}.get(len(label), 12)
-
-
-def draw_key(out, x, y, enc, label, sub, kind):
-    fill, stroke, ink, dash = STYLE[kind]
-    px = PAD + x * U + (U - KEY) / 2
-    py = TOP + y * U + (U - KEY) / 2
-    cx, cy = px + KEY / 2, py + KEY / 2
-    if enc:
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{KEY / 2:.1f}" '
-                   f'fill="{fill}" stroke="{stroke}" stroke-width="1.5"{dash}/>')
-    else:
-        out.append(f'<rect x="{px:.1f}" y="{py:.1f}" width="{KEY}" height="{KEY}" rx="8" '
-                   f'fill="{fill}" stroke="{stroke}" stroke-width="1.5"{dash}/>')
-    if not label:
-        return
-    size = font_size(label)
-    if kind in ("trans", "none"):
-        size = min(size, 14)
-    weight = "400" if kind in ("trans", "none", "mod") else "600"
-    ty = cy + size * 0.36 - (6 if sub else 0)
-    out.append(f'<text x="{cx:.1f}" y="{ty:.1f}" font-size="{size}" font-weight="{weight}" '
-               f'fill="{ink}" text-anchor="middle">{escape(label)}</text>')
-    if sub:
-        out.append(f'<text x="{cx:.1f}" y="{py + KEY - 8:.1f}" font-size="9.5" '
-                   f'fill="{ink}" opacity="0.75" text-anchor="middle">{escape(sub)}</text>')
-
-
 def render(vil, layer):
     base = vil["layout"][0]
     keys = vil["layout"][layer]
     name, access = LAYERS.get(layer, (f"Layer {layer}", ""))
-    width = WIDTH_U * U + 2 * PAD
-    height = TOP + 5.55 * U + PAD + 16
-    out = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width:.0f} {height:.0f}" '
-        f'width="{width:.0f}" height="{height:.0f}" '
-        'font-family="-apple-system, \'Segoe UI\', Helvetica, Arial, sans-serif">',
-        f'<rect x="0.5" y="0.5" width="{width - 1:.0f}" height="{height - 1:.0f}" rx="14" '
-        'fill="#f6f8fa" stroke="#d0d7de"/>',
-        f'<text x="{PAD + 4}" y="38" font-size="20" font-weight="600" fill="#1f2328">'
-        f'Layer {layer} · {escape(name)}</text>',
-        f'<text x="{width - PAD - 4:.0f}" y="38" font-size="14" fill="#57606a" '
-        f'text-anchor="end">{escape(access)}</text>',
-    ]
+    out = []
     for row in range(10):
         for col in range(6):
             code = keys[row][col]
@@ -185,28 +132,19 @@ def render(vil, layer):
                     kind = "held"
                 elif base_kind in ("trans", "none"):
                     label = sub = ""
-            draw_key(out, x, y, enc, label, sub, kind)
+            draw_key(out, x, y, label, sub, kind, round_key=enc)
 
-    # Encoder rotation, written under each encoder.
     for index, enc_x in enumerate((ENC_X, WIDTH_U - 1 - ENC_X)):
         pair = vil["encoder_layout"][layer][index]
         gray = layer != 0 and pair == ["KC_TRNS", "KC_TRNS"]
         if gray:
             pair = vil["encoder_layout"][0][index]
         ccw, cw = (legend(code)[0] for code in pair)
-        cx = PAD + enc_x * U + U / 2
-        cy = TOP + ENC_Y * U - 4
-        out.append(f'<text x="{cx:.1f}" y="{cy:.1f}" font-size="11" '
-                   f'fill="{"#8c959f" if gray else "#424a53"}" text-anchor="middle">'
-                   f'↺ {escape(ccw)} · {escape(cw)} ↻</text>')
+        draw_rotation(out, enc_x, ENC_Y, ccw, cw, gray)
 
-    note = ("Gray keys with a dashed outline fall through to the base layer."
-            if layer != 0 else
+    note = (FALL_THROUGH_NOTE if layer != 0 else
             "Round keys are the encoder push switches. The text above each one shows the rotation.")
-    out.append(f'<text x="{width / 2:.0f}" y="{height - 14:.0f}" font-size="12" '
-               f'fill="#57606a" text-anchor="middle">{escape(note)}</text>')
-    out.append("</svg>")
-    return "\n".join(out) + "\n"
+    return document(f"Layer {layer} · {name}", access, note, WIDTH_U, HEIGHT_U, out)
 
 
 def main():

@@ -1,154 +1,105 @@
 # Corne Choc Pro - Layout Visualization
 
-## Physical Layout Overview
+This document shows the Corne Choc Pro layout that is in [`config/corne_choc_pro.keymap`](config/corne_choc_pro.keymap).
+The Corne Choc Pro uses ZMK firmware.
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │     │     │     │     │ENC1 │ENC3 │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │ENC2 │ENC4 │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │           │     │     │     │     │     │     │
-└─────┴─────┴─────┼─────┼─────┼─────│           │─────┼─────┼─────┼─────┴─────┴─────┘
-                  │     │     │     │           │     │     │     │
-                  └─────┴─────┴─────┘           └─────┴─────┴─────┘
+The images show the characters that the keys make when the OS keyboard layout is Finnish.
 
-        ENC1: VOL±     ENC2: PG±     ENC3: TRACK±     ENC4: BRIGHT±
-```
+## How to read the images
 
-## Layer 0: BASE (Default)
+- A white key sends the character or the function on its legend.
+- A light gray key is a modifier or an editing key.
+- A light blue key changes the layer. The dark blue key is the key that you hold for the layer in the image.
+- A yellow key is a keyboard function, for example a Bluetooth profile.
+- A gray key with a dashed outline has no assignment on that layer. It does the same as on the base layer.
+- A round key is an encoder push switch. The text next to it shows what the encoder sends when you turn it.
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│ ESC │  Q  │  W  │  E  │  R  │  T  │LALT │RALT │  Y  │  U  │  I  │  O  │  P  │BSPC │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │  A  │  S  │  D  │  F  │  G  │LCTRL│RCTRL│  H  │  J  │  K  │  L  │  Ö  │  Ä  │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  Z  │  X  │  C  │  V  │  B  │           │  N  │  M  │  ,  │  .  │  -  │SHIFT│
-└─────┴─────┴─────┼─────┼─────┼─────│           │─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ GUI │PROG │ SPC │           │ ENT │FUNC │ NUM │
-                  └─────┴─────┴─────┘           └─────┴─────┴─────┘
-```
+## Layers
 
-**Key Features:**
-- Standard QWERTY layout with Finnish characters Ö and Ä
-- Modifier keys in encoder positions: LALT/RALT (top), LCTRL/RCTRL (middle)
-- ESC in top-left, TAB for IDE work
-- Shift keys on both outer edges
+| Layer | Name | How to get to it |
+|-------|------|------------------|
+| 0 | Base | Default layer |
+| 1 | Number | Hold `Num`. Double tap `Num` to lock the layer. |
+| 2 | Function | Hold `Func` on the right thumb |
+| 3 | Programming | Hold `Prog` on the left thumb |
+| 4 to 7 | Mac versions of layers 0 to 3 | Press `Mac` on the keyboard layer |
+| 8 | Keyboard | Press all three thumb keys of one hand at the same time |
 
-## Layer 1: NUMBER (Toggle)
+### Layer 0: Base
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│ --- │  1  │  2  │  3  │  4  │  5  │ --- │ --- │  6  │  7  │  8  │  9  │  0  │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  +  │  -  │  *  │  /  │  =  │ --- │ --- │  %  │  ^  │  &  │  |  │  (  │  )  │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  <  │  >  │ <=  │ >=  │ !=  │           │ --- │ --- │ --- │ --- │ --- │ --- │
-└─────┴─────┴─────┼─────┼─────┼─────│           │─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ --- │ --- │ --- │           │ --- │ --- │ --- │
-                  └─────┴─────┴─────┘           └─────┴─────┴─────┘
-```
+![Layer 0: Base](images/corne/layer-0.svg)
 
-**Key Features:**
-- Numbers 0-9 in standard layout
-- Mathematical operators: + - * / = % ^ & | ( )
-- Comparison operators: < > <= >= !=
-- Toggle layer - tap NUM to enter/exit
+- QWERTY with `ö` and `ä` on the right home row.
+- The four encoder push switches are `Alt`, `Ctrl`, `AltGr`, and `Ctrl`.
+- `Prog` and `Func` change the layer only while you hold them.
 
-## Layer 2: FUNCTION (Hold)
+### Layer 1: Number
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│ --- │ F1  │ F2  │ F3  │ F4  │ F5  │ --- │ --- │ F6  │ F7  │ F8  │ F9  │ F10 │ DEL │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ F11 │ F12 │  ?  │  :  │  ;  │ --- │ --- │  ←  │  ↓  │  ↑  │  →  │PGUP │PGDN │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  '  │  "  │  <  │  >  │  "  │           │HOME │ END │UNDO │REDO │S+TAB│ --- │
-└─────┴─────┴─────┼─────┼─────┼─────│           │─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ --- │ --- │ --- │           │ --- │---  │ --- │
-                  └─────┴─────┴─────┘           └─────┴─────┴─────┘
-```
+![Layer 1: Number](images/corne/layer-1.svg)
 
-**Key Features:**
-- Function keys F1-F12
-- Arrow key navigation
-- Home/End, Page Up/Down
-- Undo/Redo, Shift+Tab
-- Basic punctuation: ? : ; ' "
+- The numbers are on the top row.
+- The left home row has the math operators. The right home row has `% ^ & | ( )`.
+- `<=`, `>=`, and `!=` are macros. Each macro sends two characters.
+- When the layer is locked, press `Num` to go back to the base layer.
 
-## Layer 3: PROGRAMMING (Hold)
+### Layer 2: Function
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│ --- │  {  │  }  │  [  │  ]  │  \  │ --- │ --- │  `  │  ~  │  !  │  @  │  #  │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  (  │  )  │  <  │  >  │  /  │ --- │ --- │  "  │  '  │  :  │  ;  │  ?  │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │  $  │  %  │  ^  │  &  │  *  │           │  |  │  \  │  +  │  -  │  =  │ --- │
-└─────┴─────┴─────┼─────┼─────┼─────│           │─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ --- │PROG │ --- │           │ --- │ --- │ --- │
-                  └─────┴─────┴─────┘           └─────┴─────┴─────┘
-```
+![Layer 2: Function](images/corne/layer-2.svg)
 
-**Key Features:**
-- All bracket types: { } [ ] ( ) < >
-- Programming symbols: $ @ # | \ ` ~ !
-- String delimiters: " ' 
-- Mathematical operators: + - * / = ^ % &
-- Hold PROG key to access
+- `F1` to `F10` are on the top row. `F11` and `F12` are on the left home row.
+- The arrow keys are on the right home row in the order left, down, up, right.
+- `Home`, `End`, `Undo`, `Redo`, and Shift+Tab are on the right bottom row.
+- The left hand has `? : ;`, the quote characters, and `< >`.
 
-## Layer 4: KEYBOARD (3-Key Combo: PROG+FUNC+NUM)
+### Layer 3: Programming
 
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│ --- │ BT1 │ BT2 │ BT3 │ BT4 │ BT5 │ --- │ --- │ --- │ --- │ --- │ --- │ --- │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │BTCLR│RGBTG│ RST │BOOT │UNLCK│ --- │ --- │  ←  │  ↓  │  ↑  │  →  │ --- │ --- │
-├─────┼─────┼─────┼─────┼─────┼─────┼─────┴─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ --- │ --- │ --- │ --- │ --- │ --- │           │ --- │ --- │ --- │ --- │ --- │ --- │
-└─────┴─────┴─────┼─────┼─────┼─────│           │─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ --- │ --- │ --- │           │ --- │ --- │ --- │
-                  └─────┴─────┴─────┘           └─────┴─────┴─────┘
-```
+![Layer 3: Programming](images/corne/layer-3.svg)
 
-**Key Features:**
-- Bluetooth device selection (BT1-BT5)
-- Bluetooth clear (BTCLR)
-- RGB toggle (RGBTG)
-- System reset (RST) and bootloader (BOOT)
-- Studio unlock (UNLCK)
-- Safety: Requires holding PROG+FUNC+NUM simultaneously
+- The left hand has the brackets in pairs: `{ }`, `[ ]`, `( )`, and `< >`.
+- The right hand has punctuation on the home row and operators on the bottom row.
+- `^`, `~`, and `` ` `` are dead keys in the Finnish OS layout. Press `Space` after them to get the character alone.
 
-## Encoder Functions (All Layers)
+### Layer 8: Keyboard
 
-- **Encoder 1 (Left-Top)**: Volume Down/Up
-- **Encoder 2 (Left-Middle)**: Page Up/Down  
-- **Encoder 3 (Right-Middle)**: Previous/Next Track
-- **Encoder 4 (Right-Top)**: Brightness Down/Up
+![Layer 8: Keyboard](images/corne/layer-8.svg)
 
-## Layer Access Summary
+- `BT 1` to `BT 5` select a Bluetooth profile. `BT clr` removes the pairing of the current profile.
+- `RGB` sets the underglow on or off.
+- `Reset` restarts the left half. `Boot` puts the left half into bootloader mode.
+- `Unlock` lets ZMK Studio change the keymap.
+- The top `Win` and `Mac` keys select the OS mode.
+- The `Win` and `Mac` keys on the home row select the OS mode and then type `win-mode` or `mac-mode`. Use them to see which mode is on.
+- To leave the layer, press the three thumb keys again, or select an OS mode.
 
-```
-| GUI | PROG | SPC |             | ENT | FUNC | NUM |
-```
+## Mac layers
 
-- **BASE**: Default QWERTY + Finnish characters
-- **PROG**: Hold for programming symbols (left thumb)
-- **FUNC**: Hold for function keys and navigation (right thumb)  
-- **NUM**: Toggle for numbers and math (right thumb)
-- **KEYBOARD**: Hold PROG+FUNC+NUM simultaneously for system functions
+Layers 4 to 7 have the same legends as layers 0 to 3. They send the key codes that the macOS Finnish layout needs for the same characters.
+There is one difference in function: `Undo` and `Redo` send Cmd+Z and Cmd+Shift+Z.
 
-## Finnish Character Support
+The script that makes the images compares the Mac layers with layers 0 to 3. It stops with an error if a legend is different.
 
-- **Ö**: Accessed via `FI_O_UMLAUT` (semicolon position with Finnish OS layout)
-- **Ä**: Accessed via `FI_A_UMLAUT` (quote position with Finnish OS layout)
+## Encoders
 
-**Important**: Requires OS keyboard layout set to Finnish for proper character output.
+| Encoder | Push | Turn left | Turn right |
+|---------|------|-----------|------------|
+| Left 1 | Alt | Volume down | Volume up |
+| Left 2 | Ctrl | Page up | Page down |
+| Right 1 | AltGr | Previous track | Next track |
+| Right 2 | Ctrl | Brightness down | Brightness up |
 
-## Macros
+The encoders do the same on all layers.
+The images put encoder 1 above encoder 2 on each half. The board files do not say which encoder is the top one, so make sure on the keyboard.
 
-Three comparison operators use Finnish keys:
-- **<=**: `FI_LT` + `FI_EQUAL`
-- **>=**: `FI_GT` + `FI_EQUAL` 
-- **!=**: `FI_EXCL` + `FI_EQUAL` 
+## Update the images
+
+The script [`scripts/render_corne_layout.py`](scripts/render_corne_layout.py) makes the images.
+It reads the bindings from `config/corne_choc_pro.keymap` and the key positions from `config/corne_choc_pro.json`.
+It needs Python 3 and no other packages.
+
+1. Change the keymap.
+2. Run `python scripts/render_corne_layout.py`.
+3. If the layers changed, update `LAYERS` at the top of the script and the notes in this document.
+4. Commit the keymap and the files in `images/corne/`.
+
+The script stops with an error if the keymap has a binding that the script cannot name.
+Add the binding to the tables at the top of the script.

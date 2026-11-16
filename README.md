@@ -1,85 +1,75 @@
-# ZMK Config - Corne Choc Pro
+# Keyboard Config - Corne Choc Pro and Sofle
 
 [![Build ZMK firmware](https://github.com/mkajander/zmk-config/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/mkajander/zmk-config/actions/workflows/build.yml)
 
-Personal ZMK config for the Corne Choc Pro. Designed for programming in C#, TypeScript, and JavaScript with Finnish character support.
+Personal layouts for two split keyboards. The layouts are for programming in C#, TypeScript, and JavaScript with the Finnish OS keyboard layout.
 
-**Now supports both Windows/Linux AND Mac!** Just switch between OS modes when you need to.
+| Keyboard | Firmware | Layout file | Layout images |
+|----------|----------|-------------|---------------|
+| Corne Choc Pro | ZMK | [`config/corne_choc_pro.keymap`](config/corne_choc_pro.keymap) | [corne_layout_visualization.md](corne_layout_visualization.md) |
+| Sofle | Vial | [`current-sofle.vil`](current-sofle.vil) | [SOFLE_LAYOUT_VISUALIZATION.md](SOFLE_LAYOUT_VISUALIZATION.md) |
 
-## Dual OS Support
+The two keyboards use the same layer design, so most symbols are in the same places on both.
 
-This keyboard has separate layers for different operating systems:
+## Corne Choc Pro
 
-### Windows/Linux Mode (Layers 0-3)
-- Uses AltGr for special characters (like @ = AltGr+2)
-- Standard Finnish layout symbols
-- Works with Windows or Linux set to Finnish keyboard layout
+![Corne Choc Pro base layer](images/corne/layer-0.svg)
 
-### Mac Mode (Layers 4-7) 
-- Uses Option key for special characters (like @ = Option+2)
-- Mac Finnish layout symbols  
-- Works with macOS set to Finnish keyboard layout
+| Layer | Contents | How to get to it |
+|-------|----------|------------------|
+| Base | QWERTY with `ö` and `ä` | Default layer |
+| Number | Numbers, math operators, `<=` `>=` `!=`, `€ $ §` | Hold `Num`. Double tap `Num` to lock the layer. |
+| Function | `F1` to `F12`, arrows, page navigation, undo and redo | Hold `Func` |
+| Programming | `{ } [ ] ( ) < >` and the other programming symbols | Hold `Prog` |
+| Keyboard | Bluetooth, RGB, reset, bootloader, OS mode | Press all three thumb keys of one hand |
 
-**Both modes produce identical results** - just optimized for how each OS handles key combinations.
+See [corne_layout_visualization.md](corne_layout_visualization.md) for an image of each layer.
+See [KEYMAP_IMPLEMENTATION.md](KEYMAP_IMPLEMENTATION.md) for the behaviors, combos, and macros.
 
-## Layout
+### Windows/Linux mode and Mac mode
 
-### Base Layer / Base Mac
-QWERTY layout with Finnish Ö and Ä characters. ESC in top-left, standard modifiers.
-Mac version uses Cmd instead of Ctrl keys where appropriate.
+The Finnish layout on macOS puts some symbols on different keys than Windows and Linux. The keymap has two sets of layers for this reason:
 
-### Number Layer / Number Mac (toggle)
-Numbers 0-9 with math operators: `+ - * / = % ^ & | ( ) < >`
-Includes comparison macros: `<=`, `>=`, `!=`
-Also has: `€ $ §` symbols
+- **Windows/Linux mode** uses layers 0 to 3. Symbols use AltGr. For example, `@` is AltGr+2.
+- **Mac mode** uses layers 4 to 7. Symbols use Option. For example, `@` is Option+2.
 
-### Function Layer / Function Mac (hold)
-Function keys F1-F12, arrow keys, page navigation, and basic punctuation: `? : ; ' " < >`
-Mac version uses proper Cmd+Z/Cmd+Shift+Z for undo/redo.
+The two modes make the same characters. Set the OS keyboard layout to Finnish in both modes.
 
-### Programming Layer / Programming Mac (hold)  
-All programming symbols: `{ } [ ] ( ) \ ` ~ ! @ # " ' : ; ? $ % ^ & * | + - =`
+To change the mode:
 
-### Keyboard Layer (3-key combo)
-Bluetooth management, RGB controls, system reset functions.
-**Plus OS switching buttons and layer test macros.**
+1. Press all three thumb keys of one hand at the same time. This opens the keyboard layer.
+2. Press `Win` or `Mac` on the top row.
 
-## Switching Between OS Modes
+To see which mode is on, press `Win` or `Mac` on the home row of the keyboard layer. The key selects the mode and types `win-mode` or `mac-mode`.
 
-1. **Access keyboard layer**: Hold 3 keys simultaneously:
-   - Left combo: `GUI + PROG + SPACE` 
-   - Right combo: `ENT + FUNCTION + NUMBER`
+The mode stays until you change it. The keymap does not save the mode, so the keyboard starts in Windows/Linux mode after a restart.
 
-2. **Switch OS mode**:
-   - Press **WIN/L** button → Switch to Windows/Linux mode
-   - Press **MAC** button → Switch to Mac mode
+### Build and flash
 
-3. **Test which mode you're in**:
-   - Press **WTEST** → Goes to Windows mode and types "win-mode"
-   - Press **MTEST** → Goes to Mac mode and types "mac-mode"
+1. Open the **Actions** tab and run the **Build ZMK firmware** workflow. The workflow does not start on a push.
+2. Download the firmware artifact from the workflow run. It contains a `.uf2` file for each half.
+3. Connect the left half with USB and put it into bootloader mode. The `Boot` key on the keyboard layer does this for the left half.
+4. Copy the `.uf2` file for the left half to the USB drive that appears.
+5. Do steps 3 and 4 for the right half with its `.uf2` file. Use the reset button to get to bootloader mode.
 
-Once you switch modes, it stays that way until you manually change it.
+The artifact also has `settings_reset` firmware. Flash it to both halves if the halves do not connect to each other. Then flash the usual firmware again.
 
-## Layer Access
+## Sofle
+
+![Sofle base layer](images/sofle/layer-0.svg)
+
+To put the layout on the keyboard, open Vial and load `current-sofle.vil` with **File > Load saved layout**.
+After you change the layout in Vial, save it to `current-sofle.vil` and commit it. The keyboard has the only other copy.
+
+See [SOFLE_LAYOUT_VISUALIZATION.md](SOFLE_LAYOUT_VISUALIZATION.md) for an image of each layer.
+
+## Layout images
+
+Two scripts make the images in `images/` from the layout files. They need Python 3 and no other packages.
 
 ```
-| GUI | PROG | SPC |             | ENT | FUNCTION | NUMBER |
+python scripts/render_corne_layout.py
+python scripts/render_sofle_layout.py
 ```
 
-- **PROG** - Hold for programming symbols (PROG or PROG_MAC depending on mode)
-- **FUNCTION** - Hold for F-keys and navigation (FUNCTION or FUNCTION_MAC)
-- **NUMBER** - Toggle for numbers and math (NUMBER or NUMBER_MAC)
-- **Keyboard** - Hold any 3-key combo above for system controls
-
-## Hardware
-
-Preserves all encoder functions: volume, page scroll, media control, brightness.
-
-## Setup
-
-1. Flash the firmware to your keyboard
-2. Set your OS keyboard layout to Finnish 
-3. Use the keyboard layer to switch to your OS mode (Windows/Linux or Mac)
-4. Start typing!
-
-The keyboard remembers which OS mode you selected, so you only need to switch when changing computers. 
+Run the applicable script after you change a layout, and commit the images with the layout.
